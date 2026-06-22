@@ -6,45 +6,45 @@ const textoResultado = document.querySelector(".texto-resultado");
 
 const perguntas = [
     {
-        enunciado: "Assim que saiu da escola você se depara com uma nova tecnologia, um chat que consegue responder todas as dúvidas que uma pessoa pode ter, ele também gera imagens e áudios hiper-realistas. Qual o primeiro pensamento?",
+        enunciado: "Em seu primeiro dia na Escola Técnica de Jujutsu de Tóquio, você dá de cara com Satoru Gojo usando seus óculos escuros e comendo doces. Ele te dá um tchauzinho animado. Qual é o seu primeiro pensamento?",
         alternativas: [
-            { texto: "Isso é assustador!", afirmacao: "No início, você sentiu medo do avanço acelerado da tecnologia." },
-            { texto: "Isso é maravilhoso!", afirmacao: "De primeira, você se empolgou com as infinitas possibilidades do futuro." }
+            { texto: "Ele parece ser muito arrogante e irresponsável para ser o mais forte.", afirmacao: "No início, você duvidou da postura descontraída de Gojo." },
+            { texto: "Ele é incrível! Transmite uma confiança absurda.", afirmacao: "De primeira, você se impressionou com a presença e o carisma de Gojo." }
         ]
     },
     {
-        enunciado: "Com a descoberta desta tecnologia, chamada Inteligência Artificial, uma professora de tecnologia da escola decidiu fazer uma sequência de aulas sobre esta tecnologia. No fim de uma aula ela pede que você escreva um trabalho sobre o uso de IA em sala de aula. Qual atitude você toma?",
+        enunciado: "Durante um treinamento prático, Gojo decide demonstrar o 'Feitiço Ilimitado' e a técnica 'Azul' destruindo parte do cenário sem esforço nenhum. Que atitude você toma em relação ao poder dele?",
         alternativas: [
-            { texto: "Utiliza uma ferramenta de busca na internet que utiliza IA para que ela ajude a encontrar informações relevantes para o trabalho e explique numa linguagem que facilite o entendimento.", afirmacao: "Você prefere usar a tecnologia como uma aliada prática no seu aprendizado." },
-            { texto: "Escreve o trabalho com base nas conversas que teve com colegas, algumas pesquisas na internet e conhecimentos próprios sobre o tema.", afirmacao: "Você prioriza métodos tradicionais de pesquisa e o debate humano." }
+            { texto: "Tenta estudar a teoria por trás do Infinito para entender perfeitamente como ele manipula o espaço.", afirmacao: "Você prefere analisar o poder de Gojo de forma estratégica e intelectual." },
+            { texto: "Fica apenas chocado com a força bruta e aceita que ele está em outro patamar impossível de alcançar.", afirmacao: "Você reconhece a soberania absoluta dele como uma força inevitável da natureza." }
         ]
     },
     {
-        enunciado: "Após a elaboração do trabalho escrito, a professora realizou um debate entre a turma para entender como foi realizada a pesquisa e escrita. Nessa conversa também foi levantado um ponto muito importante: como a IA impacta o trabalho do futuro. Nesse debate, como você se posiciona?",
+        enunciado: "Gojo costuma dizer que quer criar uma nova geração de feiticeiros fortes para não precisar carregar o mundo Jujutsu sozinho. Em um debate com seus colegas, como você se posiciona sobre as intenções dele?",
         alternativas: [
-            { texto: "Defende a ideia de que a IA pode criar novas oportunidades de emprego e melhorar habilidades humanas.", afirmacao: "Você mantém uma visão otimista de que a tecnologia impulsionará o mercado profissional." },
-            { texto: "Me preocupo com as pessoas que perderão seus empregos para máquinas e defendem a importância de proteger os trabalhadores.", afirmacao: "Sua preocupação está voltada para o impacto social e a segurança dos trabalhadores." }
+            { texto: "Acredita que ele realmente se importa com o futuro dos alunos e quer protegê-los de um sistema corrompido.", afirmacao: "Você enxerga Gojo como um mentor genuíno e revolucionário." },
+            { texto: "Acha que ele faz isso porque está entediado no topo e quer aliados que consigam acompanhá-lo.", afirmacao: "Você mantém um pé atrás, enxergando uma ponta de egoísmo na solidão do mais forte." }
         ]
     },
     {
-        enunciado: "Ao final da discussão, você precisou criar uma imagem no computador que representasse o que pensa sobre IA. E agora?",
+        enunciado: "Chega o momento crítico do Incidente de Shibuya. Gojo é selado na Prisão Confinadora (Gokumonkyo). Qual o seu plano de ação imediato?",
         alternativas: [
-            { texto: "Criar uma imagem utilizando uma plataforma de design como o Paint.", afirmacao: "Prefere expressar sua criatividade de forma manual e autoral." },
-            { texto: "Criar uma imagem utilizando um gerador de imagem de IA.", afirmacao: "Decidiu testar as capacidades gerativas das novas ferramentas visuais." }
+            { texto: "Montar uma força-tarefa urgente com os estudantes e outros feiticeiros para resgatá-lo a todo custo.", afirmacao: "Você sabe que o equilíbrio do mundo depende diretamente da presença de Gojo." },
+            { texto: "Focar em conter os danos e proteger os civis primeiro, pois o próprio Gojo daria um jeito de sobreviver lá dentro.", afirmacao: "Você confia plenamente na resiliência dele e priorizou o plano de contenção." }
         ]
     },
     {
-        enunciado: "Você tem um trabalho em grupo de biologia para entregar na semana seguinte, o andamento do trabalho está um pouco atrasado e uma pessoa do seu grupo decidiu fazer com ajuda da IA. O problema é que o trabalho está totalmente igual ao do chat. O que você faz? ",
+        enunciado: "Após a grande batalha contra Sukuna, surge a discussão inevitável sobre o legado de Satoru Gojo para o mundo. Qual é a sua conclusão sobre a trajetória dele?",
         alternativas: [
-            { texto: "Escrever comandos para o chat é uma forma de contribuir com o trabalho, por isso não é um problema utilizar o texto inteiro.", afirmacao: "Acha válido usar respostas prontas se o comando inicial foi bem pensado." },
-            { texto: "O chat pode ser uma tecnologia muito avançada, mas é preciso manter a atenção pois toda máquina erra, por isso revisar o trabalho e contribuir com as perspectivas pessoais é essencial.", afirmacao: "Entende que a revisão humana e o toque pessoal são indispensáveis para um bom trabalho." }
+            { texto: "Ele provou que, mesmo sendo uma divindade entre os homens, sua maior força era sua humanidade e carinho pelos alunos.", afirmacao: "Para você, o maior legado de Gojo não foi o seu poder, mas o impacto humano que deixou na nova geração." },
+            { texto: "Ele foi uma arma perfeita que viveu e morreu pela causa Jujutsu, cumprindo seu papel como o mais forte até o fim.", afirmacao: "Você foca no aspecto lendário e militar de Gojo, o enxergando como o ápice insuperável do mundo dos feiticeiros." }
         ]
     }
 ];
 
 let atual = 0;
 let perguntaAtual;
-let historiaFinal = ""; // Armazena o perfil/história gerada pelas escolhas
+let historiaFinal = ""; 
 
 function mostraPergunta() {
     if (atual >= perguntas.length) {
@@ -53,30 +53,6 @@ function mostraPergunta() {
     }
     perguntaAtual = perguntas[atual];
     caixaPerguntas.textContent = perguntaAtual.enunciado;
-    caixaAlternativas.textContent = ""; // Limpa as alternativas anteriores
+    caixaAlternativas.textContent = ""; 
     mostraAlternativas();
 }
-
-function mostraAlternativas() {
-    for (const alternativa of perguntaAtual.alternativas) {
-        const botaoAlternativas = document.createElement("button");
-        botaoAlternativas.textContent = alternativa.texto;
-        botaoAlternativas.addEventListener("click", () => respostaSelecionada(alternativa));
-        caixaAlternativas.appendChild(botaoAlternativas);
-    }
-}
-
-function respostaSelecionada(opcaoSelecionada) {
-    historiaFinal += opcaoSelecionada.afirmacao + " "; // Junta as afirmações
-    atual++;
-    mostraPergunta();
-}
-
-function mostraResultado() {
-    caixaPerguntas.textContent = "Em resumo, suas escolhas mostram que:";
-    textoResultado.textContent = historiaFinal;
-    caixaAlternativas.textContent = ""; // Limpa os botões
-}
-
-// Inicia o quiz
-mostraPergunta();
