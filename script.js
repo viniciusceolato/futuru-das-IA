@@ -3,6 +3,7 @@ const caixaPerguntas = document.querySelector(".caixa-perguntas");
 const caixaAlternativas = document.querySelector(".caixa-alternativas");
 const caixaResultado = document.querySelector(".caixa-resultado");
 const textoResultado = document.querySelector(".texto-resultado");
+const barraProgresso = document.querySelector(".barra-progresso-preenchimento");
 
 const perguntas = [
     {
@@ -10,11 +11,11 @@ const perguntas = [
         alternativas: [
             {
                 texto: "Ele parece ser muito arrogante e irresponsável para ser o mais forte.", 
-                afirmacao: "afirmacao"
+                afirmacao: "No começo, você viu Gojo com desconfiança por causa do seu jeito brincalhão."
             },
             {
                 texto: "Ele é incrível! Transmite uma confiança absurda.",
-                afirmacao: "afirmacao"
+                afirmacao: "Desde o primeiro momento, você se impressionou com a presença marcante de Gojo."
             }
         ]
     },
@@ -23,11 +24,11 @@ const perguntas = [
         alternativas: [
             {
                 texto: "Tenta estudar a teoria por trás do Infinito para entender perfeitamente como ele manipula o espaço.",
-                afirmacao: "afirmacao"
+                afirmacao: "Ao presenciar as habilidades dele, você buscou entender a fundo a lógica por trás do Infinito."
             },
             {
                 texto: "Fica apenas chocado com a força bruta e aceita que ele está em outro patamar impossível de alcançar.",
-                afirmacao: "afirmacao"
+                afirmacao: "Diante do poder dele, você reconheceu que ele habitava um nível inalcançável."
             }
         ]
     },
@@ -36,11 +37,11 @@ const perguntas = [
         alternativas: [
             {
                 texto: "Acredita que ele realmente se importa com o futuro dos alunos e quer protegê-los de um sistema corrompido.", 
-                afirmacao: "afirmacao"
+                afirmacao: "Você sempre defendeu que o objetivo dele era proteger os jovens de um sistema ultrapassado."
             },
             {
                 texto: "Acha que ele faz isso porque está entediado no topo e quer aliados que consigam acompanhá-lo.",
-                afirmacao: "afirmacao"
+                afirmacao: "Para você, o desejo dele de formar fortes aliados vinha da própria solidão de estar no topo."
             }
         ]
     },
@@ -49,11 +50,11 @@ const perguntas = [
         alternativas: [
             {
                 texto: "Montar uma força-tarefa urgente com os estudantes e outros feiticeiros para resgatá-lo a todo custo.",
-                afirmacao: "afirmacao"
+                afirmacao: "Quando ele foi selado em Shibuya, sua reação imediata foi mobilizar todos para um resgate."
             },
             {
                 texto: "Focar em conter os danos e proteger os civis primeiro, pois o próprio Gojo daria um jeito de sobreviver lá dentro.",
-                afirmacao: "afirmacao"
+                afirmacao: "Durante a crise de Shibuya, você preferiu priorizar os civis enquanto confiava na resistência dele."
             }
         ]
     },
@@ -62,11 +63,11 @@ const perguntas = [
         alternativas: [
             {
                 texto: "Ele provou que, mesmo sendo uma divindade entre os homens, sua maior força era sua humanidade e carinho pelos alunos.",
-                afirmacao: "afirmacao"
+                afirmacao: "Por fim, você guardará a lembrança de Gojo celebrando sua humanidade acima de seu poder divino."
             },
             {
                 texto: "Ele foi uma arma perfeita que viveu e morreu pela causa Jujutsu, cumprindo seu papel como o mais forte até o fim.",
-                afirmacao: "afirmacao"
+                afirmacao: "Por fim, você enxergou a jornada dele como a do guerreiro definitivo que cumpriu seu dever até o fim."
             }
         ]
     }
@@ -74,9 +75,16 @@ const perguntas = [
 
 let atual = 0;
 let perguntaAtual;
+let historiaFinal = "";
+
+function atualizaBarraProgresso() {
+    const porcentagem = (atual / perguntas.length) * 100;
+    barraProgresso.style.width = `${porcentagem}%`;
+}
 
 function mostraPergunta() {
-    // Verifica se ainda existem perguntas na lista
+    atualizaBarraProgresso();
+
     if (atual >= perguntas.length) {
         exibeResultado();
         return;
@@ -84,11 +92,15 @@ function mostraPergunta() {
 
     perguntaAtual = perguntas[atual];
     caixaPerguntas.textContent = perguntaAtual.enunciado;
-    
-    // Limpa as alternativas da pergunta anterior
     caixaAlternativas.textContent = "";
-    
-    // Desenha as novas alternativas
+
+    // Animação de entrada
+    caixaPerguntas.classList.remove("animar-entrada");
+    caixaAlternativas.classList.remove("animar-entrada");
+    void caixaPerguntas.offsetWidth;
+    caixaPerguntas.classList.add("animar-entrada");
+    caixaAlternativas.classList.add("animar-entrada");
+
     mostraAlternativas();
 }
 
@@ -97,6 +109,7 @@ function mostraAlternativas() {
         const botaoAlternativa = document.createElement("button");
         botaoAlternativa.textContent = alternativa.texto;
         botaoAlternativa.addEventListener("click", function () {
+            historiaFinal += alternativa.afirmacao + " ";
             atual++;
             mostraPergunta();
         });
@@ -105,10 +118,30 @@ function mostraAlternativas() {
 }
 
 function exibeResultado() {
-    caixaPerguntas.textContent = "Fim do Quiz!";
+    barraProgresso.style.width = "100%";
+
+    caixaPerguntas.textContent = "Resumo da sua Jornada";
     caixaAlternativas.textContent = "";
-    textoResultado.textContent = "Você completou sua jornada junto a Satoru Gojo no mundo Jujutsu!";
+    textoResultado.textContent = historiaFinal;
+
+    caixaPerguntas.classList.remove("animar-entrada");
+    textoResultado.classList.remove("animar-entrada");
+    void caixaPerguntas.offsetWidth;
+    
+    caixaPerguntas.classList.add("animar-entrada");
+    textoResultado.classList.add("animar-entrada");
+
+    const botaoReiniciar = document.createElement("button");
+    botaoReiniciar.textContent = "Jogar Novamente";
+    botaoReiniciar.addEventListener("click", reiniciarQuiz);
+    caixaAlternativas.appendChild(botaoReiniciar);
 }
 
-// Inicia o quiz
+function reiniciarQuiz() {
+    atual = 0;
+    historiaFinal = "";
+    textoResultado.textContent = "";
+    mostraPergunta();
+}
+
 mostraPergunta();
