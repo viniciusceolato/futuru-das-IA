@@ -11,11 +11,18 @@ const perguntas = [
         alternativas: [
             {
                 texto: "Ele parece ser muito arrogante e irresponsável para ser o mais forte.", 
-                afirmacao: "No começo, você viu Gojo com desconfiança por causa do seu jeito brincalhão."
+                afirmacao: [
+                "No começo, você viu Gojo com desconfiança por causa do seu jeito brincalhão.",
+                "o comportamento despreocupado de Gojo te deixou bastante desconfiado",
+              
+            ]
             },
             {
                 texto: "Ele é incrível! Transmite uma confiança absurda.",
-                afirmacao: "Desde o primeiro momento, você se impressionou com a presença marcante de Gojo."
+                afirmacao: [
+                "Desde o primeiro momento, você se impressionou com a presença marcante de Gojo.",
+                ""
+            ]
             }
         ]
     },
@@ -24,11 +31,17 @@ const perguntas = [
         alternativas: [
             {
                 texto: "Tenta estudar a teoria por trás do Infinito para entender perfeitamente como ele manipula o espaço.",
-                afirmacao: "Ao presenciar as habilidades dele, você buscou entender a fundo a lógica por trás do Infinito."
+                afirmacao: [
+                "Ao presenciar as habilidades dele, você buscou entender a fundo a lógica por trás do Infinito.",
+                ""
+            ]
             },
             {
                 texto: "Fica apenas chocado com a força bruta e aceita que ele está em outro patamar impossível de alcançar.",
-                afirmacao: "Diante do poder dele, você reconheceu que ele habitava um nível inalcançável."
+                afirmacao: [
+              "Diante do poder dele, você reconheceu que ele habitava um nível inalcançável.",
+              ""
+                ]
             }
         ]
     },
@@ -37,11 +50,19 @@ const perguntas = [
         alternativas: [
             {
                 texto: "Acredita que ele realmente se importa com o futuro dos alunos e quer protegê-los de um sistema corrompido.", 
-                afirmacao: "Você sempre defendeu que o objetivo dele era proteger os jovens de um sistema ultrapassado."
+                afirmacao:[
+             "Você sempre defendeu que o objetivo dele era proteger os jovens de um sistema ultrapassado.",
+             ""
+                ]
             },
             {
                 texto: "Acha que ele faz isso porque está entediado no topo e quer aliados que consigam acompanhá-lo.",
-                afirmacao: "Para você, o desejo dele de formar fortes aliados vinha da própria solidão de estar no topo."
+                afirmacao: [
+                "Para você, o desejo dele de formar fortes aliados vinha da própria solidão de estar no topo.",
+                ""
+    textoResultado.textContent = "";
+    mostraPergunta();
+                ]
             }
         ]
     },
@@ -49,12 +70,20 @@ const perguntas = [
         enunciado: "Chega o momento crítico do Incidente de Shibuya. Gojo é selado na Prisão Confinadora (Gokumonkyo). Qual o seu plano de ação imediato?",
         alternativas: [
             {
+    textoResultado.textContent = "";
+    mostraPergunta();
                 texto: "Montar uma força-tarefa urgente com os estudantes e outros feiticeiros para resgatá-lo a todo custo.",
-                afirmacao: "Quando ele foi selado em Shibuya, sua reação imediata foi mobilizar todos para um resgate."
+                afirmacao:[
+                 "Quando ele foi selado em Shibuya, sua reação imediata foi mobilizar todos para um resgate.",
+                 ""
+                ]
             },
             {
                 texto: "Focar em conter os danos e proteger os civis primeiro, pois o próprio Gojo daria um jeito de sobreviver lá dentro.",
-                afirmacao: "Durante a crise de Shibuya, você preferiu priorizar os civis enquanto confiava na resistência dele."
+                afirmacao:[
+                 "Durante a crise de Shibuya, você preferiu priorizar os civis enquanto confiava na resistência dele.",
+                 ""
+                ]
             }
         ]
     },
@@ -63,11 +92,17 @@ const perguntas = [
         alternativas: [
             {
                 texto: "Ele provou que, mesmo sendo uma divindade entre os homens, sua maior força era sua humanidade e carinho pelos alunos.",
-                afirmacao: "Por fim, você guardará a lembrança de Gojo celebrando sua humanidade acima de seu poder divino."
+                afirmacao: [
+                "Por fim, você guardará a lembrança de Gojo celebrando sua humanidade acima de seu poder divino.",
+                ""
+                ]
             },
             {
                 texto: "Ele foi uma arma perfeita que viveu e morreu pela causa Jujutsu, cumprindo seu papel como o mais forte até o fim.",
-                afirmacao: "Por fim, você enxergou a jornada dele como a do guerreiro definitivo que cumpriu seu dever até o fim."
+                afirmacao: [
+                "Por fim, você enxergou a jornada dele como a do guerreiro definitivo que cumpriu seu dever até o fim.",
+                ""
+                ]
             }
         ]
     }
@@ -115,12 +150,16 @@ function mostraAlternativas() {
         });
         caixaAlternativas.appendChild(botaoAlternativa);
     }
+    textoResultado.textContent = "";
+    mostraPergunta();
 }
 
 function exibeResultado() {
     barraProgresso.style.width = "100%";
 
     caixaPerguntas.textContent = "Resumo da sua Jornada";
+    textoResultado.textContent = "";
+    mostraPergunta();
     caixaAlternativas.textContent = "";
     textoResultado.textContent = historiaFinal;
 
