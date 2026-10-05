@@ -108,3 +108,17 @@ button:hover {
     margin-bottom: 20px;
     text-shadow: 0 0 10px rgba(168, 85, 247, 0.4);
 }
+
+
+
+body {
+    /* Degradê roxo: do bem escuro (#0a051b) para o bem claro (#e9d5ff) */
+    background: linear-gradient(135deg, #0a051b, #e9d5ff);
+    background-attachment: fixed; /* Garante que o degradê cubra toda a tela sem repetir ao rolar */
+    color: #f8fafc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}

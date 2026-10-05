@@ -6,8 +6,6 @@ const textoResultado = document.querySelector(".texto-resultado");
 const barraProgresso = document.querySelector(".barra-progresso-preenchimento");
 
 const perguntas = [
-   
-   
     {
         enunciado: "Em seu primeiro dia na Escola Técnica de Jujutsu de Tóquio, você dá de cara com Satoru Gojo usando sua venda escura e comendo doces. Ele te dá um tchauzinho animado. Qual é o seu primeiro pensamento?",
         alternativas: [
@@ -105,15 +103,6 @@ const perguntas = [
     }
 ];
 
-
-
-
-
-
-
-
-
-
 let atual = 0;
 let perguntaAtual;
 let historiaFinal = "";
@@ -123,6 +112,33 @@ function atualizaBarraProgresso() {
         const porcentagem = (atual / perguntas.length) * 100;
         barraProgresso.style.width = `${porcentagem}%`;
     }
+}
+
+function mostraTelaInicial() {
+    if (barraProgresso) {
+        barraProgresso.style.width = "0%";
+    }
+
+    caixaPerguntas.textContent = "Bem-vindo ao Quiz Jujutsu: Sua Jornada com Satoru Gojo";
+    caixaAlternativas.textContent = "";
+    textoResultado.textContent = "Neste quiz interativo, você tomará decisões marcantes ao longo da sua convivência com o feiticeiro mais forte da era moderna. Cada escolha moldará a visão final sobre a sua jornada no mundo das maldições.";
+
+    // Animação de entrada
+    caixaPerguntas.classList.remove("animar-entrada");
+    textoResultado.classList.remove("animar-entrada");
+    void caixaPerguntas.offsetWidth;
+    caixaPerguntas.classList.add("animar-entrada");
+    textoResultado.classList.add("animar-entrada");
+
+    const botaoIniciar = document.createElement("button");
+    botaoIniciar.textContent = "Iniciar Quiz";
+    botaoIniciar.addEventListener("click", iniciarQuiz);
+    caixaAlternativas.appendChild(botaoIniciar);
+}
+
+function iniciarQuiz() {
+    textoResultado.textContent = "";
+    mostraPergunta();
 }
 
 function mostraPergunta() {
@@ -140,56 +156,12 @@ function mostraPergunta() {
     // Animação de entrada
     caixaPerguntas.classList.remove("animar-entrada");
     caixaAlternativas.classList.remove("animar-entrada");
-    void caixaPerguntas.offsetWidth; // Recarrega o fluxo de renderização para reiniciar a animação
+    void caixaPerguntas.offsetWidth;
     caixaPerguntas.classList.add("animar-entrada");
     caixaAlternativas.classList.add("animar-entrada");
 
     mostraAlternativas();
 }
-
-function mostraAlternativas() {
-    for (const alternativa of perguntaAtual.alternativas) {
-        const botaoAlternativa = document.createElement("button");
-        botaoAlternativa.textContent = alternativa.texto;
-        botaoAlternativa.addEventListener("click", function () {
-            historiaFinal += alternativa.afirmacao + " ";
-            atual++;
-            mostraPergunta();
-        });
-        caixaAlternativas.appendChild(botaoAlternativa);
-    }
-}
-
-function exibeResultado() {
-    if (barraProgresso) {
-        barraProgresso.style.width = "100%";
-    }
-
-    caixaPerguntas.textContent = "Resumo da sua Jornada";
-    caixaAlternativas.textContent = "";
-    textoResultado.textContent = historiaFinal;
-
-    caixaPerguntas.classList.remove("animar-entrada");
-    textoResultado.classList.remove("animar-entrada");
-    void caixaPerguntas.offsetWidth;
-    
-    caixaPerguntas.classList.add("animar-entrada");
-    textoResultado.classList.add("animar-entrada");
-
-    const botaoReiniciar = document.createElement("button");
-    botaoReiniciar.textContent = "Jogar Novamente, renaça e mude seu destino";
-    botaoReiniciar.addEventListener("click", reiniciarQuiz);
-    caixaAlternativas.appendChild(botaoReiniciar);
-}
-
-function reiniciarQuiz() {
-    atual = 0;
-    historiaFinal = "";
-    textoResultado.textContent = "";
-    mostraPergunta();
-}
-
-
 
 function aleatorio(lista) {
     const posicao = Math.floor(Math.random() * lista.length);
@@ -212,11 +184,34 @@ function mostraAlternativas() {
     }
 }
 
+function exibeResultado() {
+    if (barraProgresso) {
+        barraProgresso.style.width = "100%";
+    }
 
+    caixaPerguntas.textContent = "Resumo da sua Jornada";
+    caixaAlternativas.textContent = "";
+    textoResultado.textContent = historiaFinal;
 
-// Inicializa o quiz
-mostraPergunta();
+    caixaPerguntas.classList.remove("animar-entrada");
+    textoResultado.classList.remove("animar-entrada");
+    void caixaPerguntas.offsetWidth;
+    
+    caixaPerguntas.classList.add("animar-entrada");
+    textoResultado.classList.add("animar-entrada");
 
+    const botaoReiniciar = document.createElement("button");
+    botaoReiniciar.textContent = "Jogar Novamente, renasça e mude seu destino";
+    botaoReiniciar.addEventListener("click", reiniciarQuiz);
+    caixaAlternativas.appendChild(botaoReiniciar);
+}
 
+function reiniciarQuiz() {
+    atual = 0;
+    historiaFinal = "";
+    textoResultado.textContent = "";
+    mostraTelaInicial();
+}
 
-
+// Inicializa o quiz exibindo a tela inicial
+mostraTelaInicial();
