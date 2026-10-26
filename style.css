@@ -58,9 +58,9 @@ body {
 }
 
 button {
-    background-color: #334155;
-    color: #f8fafc;
-    border: 1px solid #475569;
+    background-color: #3b5272;
+    color: #f3f3f3;
+    border: 1px solid #4e17ce;
     padding: 14px 18px;
     border-radius: 8px;
     font-size: 1rem;
@@ -70,8 +70,8 @@ button {
 }
 
 button:hover {
-    background-color: #4f46e5;
-    border-color: #6366f1;
+    background-color: #6611c7;
+    border-color: #2e2f6c;
     transform: translateY(-2px);
 }
 
@@ -104,7 +104,7 @@ button:hover {
     font-size: 1.1rem;
     font-style: italic;
     text-align: center;
-    color: #a669e3;
+    color: #ac70e9;
     margin-bottom: 20px;
     text-shadow: 0 0 10px rgba(168, 85, 247, 0.4);
 }
@@ -113,7 +113,7 @@ button:hover {
 
 body {
     /* Degradê roxo: do bem escuro (#0a051b) para o bem claro (#e9d5ff) */
-    background: linear-gradient(135deg, #0a051b, #e9d5ff);
+    background: linear-gradient(135deg, #190b45, #841fb6);
     background-attachment: fixed; /* Garante que o degradê cubra toda a tela sem repetir ao rolar */
     color: #f8fafc;
     display: flex;
